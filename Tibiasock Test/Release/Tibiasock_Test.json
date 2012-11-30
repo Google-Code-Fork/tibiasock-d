@@ -1,0 +1,1212 @@
+[
+{
+"name" : "tibia.packet",
+"kind" : "module",
+"file" : "tibia\\packet.d",
+"members" : [
+{
+"name" : "defaultCapacity",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 7}
+,
+{
+"name" : "Packet",
+"kind" : "class",
+"protection" : "public",
+"line" : 10,
+"base" : "Object",
+"members" : [
+{
+"name" : "this",
+"kind" : "constructor",
+"protection" : "public",
+"type" : "Packet(int initialCapacity)",
+"line" : 12}
+,
+{
+"name" : "this",
+"kind" : "constructor",
+"protection" : "public",
+"type" : "Packet()",
+"line" : 16}
+,
+{
+"name" : "size",
+"kind" : "function",
+"protection" : "public",
+"type" : "@property uint()",
+"line" : 21}
+,
+{
+"name" : "rawSize",
+"kind" : "function",
+"protection" : "public",
+"type" : "@property uint()",
+"line" : 25}
+,
+{
+"name" : "position",
+"kind" : "function",
+"protection" : "public",
+"type" : "@property uint()",
+"line" : 29}
+,
+{
+"name" : "add(T)",
+"kind" : "template",
+"protection" : "public",
+"line" : 34,
+"members" : [
+{
+"name" : "add",
+"kind" : "function",
+"type" : "void(T value)",
+"line" : 34}
+]
+}
+,
+{
+"name" : "read(T) if (!isArray!(T))",
+"kind" : "template",
+"protection" : "public",
+"line" : 65,
+"members" : [
+{
+"name" : "read",
+"kind" : "function",
+"type" : "T()",
+"line" : 65}
+]
+}
+,
+{
+"name" : "peek(T) if (!isArray!(T))",
+"kind" : "template",
+"protection" : "public",
+"line" : 74,
+"members" : [
+{
+"name" : "peek",
+"kind" : "function",
+"type" : "T()",
+"line" : 74}
+]
+}
+,
+{
+"name" : "getPacket",
+"kind" : "function",
+"protection" : "public",
+"type" : "ubyte[]()",
+"line" : 82}
+,
+{
+"name" : "getRawPacket",
+"kind" : "function",
+"protection" : "public",
+"type" : "ubyte[]()",
+"line" : 86}
+,
+{
+"name" : "mBody",
+"kind" : "variable",
+"protection" : "private",
+"type" : "ubyte[]",
+"line" : 92}
+,
+{
+"name" : "mOut",
+"kind" : "variable",
+"protection" : "private",
+"type" : "ubyte[]",
+"line" : 93}
+,
+{
+"name" : "mPacketSize",
+"kind" : "variable",
+"protection" : "private",
+"type" : "ushort",
+"line" : 94}
+,
+{
+"name" : "mCurrentPos",
+"kind" : "variable",
+"protection" : "private",
+"type" : "ushort",
+"line" : 95}
+]
+}
+]
+}
+,
+{
+"name" : "tibia.tibiasock",
+"kind" : "module",
+"file" : "tibia\\tibiasock.d",
+"members" : [
+{
+"name" : "sendPacketToClientEx",
+"kind" : "function",
+"protection" : "public",
+"type" : "void(void* process, ubyte[] dataBuffer, uint recvStream, uint parserCall)",
+"line" : 13}
+,
+{
+"name" : "sendPacketToServerEx",
+"kind" : "function",
+"protection" : "public",
+"type" : "void(void* process, ubyte[] dataBuffer, uint sendStreamData, uint sendStreamLength, uint sendPacketCall)",
+"line" : 46}
+,
+{
+"name" : "getProcessImageBase",
+"kind" : "function",
+"protection" : "public",
+"type" : "uint(void* process)",
+"line" : 67}
+,
+{
+"name" : "CreateRemoteBuffer",
+"kind" : "function",
+"protection" : "private",
+"type" : "void*(void* process, ubyte[] dataBuffer)",
+"line" : 77}
+,
+{
+"name" : "WriteIncomingBuffer",
+"kind" : "function",
+"protection" : "private",
+"type" : "void(void* process, uint recvStream, ubyte[] data, uint position)",
+"line" : 82}
+,
+{
+"name" : "createOutgoingBuffer",
+"kind" : "function",
+"protection" : "private",
+"type" : "ubyte[](ubyte[] dataBuffer)",
+"line" : 91}
+,
+{
+"name" : "openAndSuspendThread",
+"kind" : "function",
+"protection" : "private",
+"type" : "void*(uint threadID)",
+"line" : 97}
+,
+{
+"name" : "resumeAndCloseThread",
+"kind" : "function",
+"protection" : "private",
+"type" : "void(void* thread)",
+"line" : 103}
+,
+{
+"name" : "executeRemoteCode",
+"kind" : "function",
+"protection" : "private",
+"type" : "void(void* process, void* codeAddress, void* arg)",
+"line" : 108}
+,
+{
+"name" : "getProcessMainThreadId",
+"kind" : "function",
+"protection" : "private",
+"type" : "uint(void* process)",
+"line" : 114}
+,
+{
+"name" : "getThreadInfoBlockPointer",
+"kind" : "function",
+"protection" : "private",
+"type" : "uint()",
+"line" : 122}
+]
+}
+,
+{
+"name" : "tibia.winapi",
+"kind" : "module",
+"file" : "tibia\\winapi.d",
+"members" : [
+{
+"name" : "CreateProcess",
+"kind" : "alias",
+"protection" : "public",
+"line" : 12}
+,
+{
+"name" : "Module32First",
+"kind" : "alias",
+"protection" : "public",
+"line" : 13}
+,
+{
+"name" : "Module32Next",
+"kind" : "alias",
+"protection" : "public",
+"line" : 14}
+,
+{
+"name" : "Process32First",
+"kind" : "alias",
+"protection" : "public",
+"line" : 15}
+,
+{
+"name" : "Process32Next",
+"kind" : "alias",
+"protection" : "public",
+"line" : 16}
+,
+{
+"name" : "STARTUPINFO",
+"kind" : "alias",
+"protection" : "public",
+"type" : "STARTUPINFOW",
+"line" : 18}
+,
+{
+"name" : "LPSTARTUPINFO",
+"kind" : "alias",
+"protection" : "public",
+"type" : "STARTUPINFOW*",
+"line" : 19}
+,
+{
+"name" : "LPPROCESS_INFORMATION",
+"kind" : "alias",
+"protection" : "public",
+"type" : "PROCESS_INFORMATION*",
+"line" : 20}
+,
+{
+"name" : "GetClassName",
+"kind" : "alias",
+"protection" : "public",
+"line" : 24}
+,
+{
+"name" : "GetWindowLong",
+"kind" : "alias",
+"protection" : "public",
+"line" : 25}
+,
+{
+"name" : "MODULEENTRY32",
+"kind" : "alias",
+"protection" : "public",
+"type" : "MODULEENTRY32W",
+"line" : 27}
+,
+{
+"name" : "PROCESSENTRY32",
+"kind" : "alias",
+"protection" : "public",
+"type" : "PROCESSENTRY32W",
+"line" : 28}
+,
+{
+"name" : "LPMODULEENTRY32W",
+"kind" : "alias",
+"protection" : "public",
+"type" : "MODULEENTRY32W*",
+"line" : 29}
+,
+{
+"name" : "LPPROCESSENTRY32W",
+"kind" : "alias",
+"protection" : "public",
+"type" : "PROCESSENTRY32W*",
+"line" : 30}
+,
+{
+"name" : "CreateProcessW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(const(wchar)*, wchar*, SECURITY_ATTRIBUTES*, SECURITY_ATTRIBUTES*, int, uint, void*, const(wchar)*, STARTUPINFOW*, PROCESS_INFORMATION*)",
+"line" : 38}
+,
+{
+"name" : "CreateRemoteThread",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(void*, SECURITY_ATTRIBUTES*, uint, extern (Windows) uint function(void*), void*, uint, uint*)",
+"line" : 40}
+,
+{
+"name" : "CreateToolhelp32Snapshot",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(uint, uint)",
+"line" : 42}
+,
+{
+"name" : "Module32FirstW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, MODULEENTRY32W*)",
+"line" : 43}
+,
+{
+"name" : "Module32NextW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, MODULEENTRY32W*)",
+"line" : 44}
+,
+{
+"name" : "OpenProcess",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(uint, int, uint)",
+"line" : 45}
+,
+{
+"name" : "OpenThread",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(uint, int, uint)",
+"line" : 46}
+,
+{
+"name" : "Process32FirstW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, PROCESSENTRY32W*)",
+"line" : 47}
+,
+{
+"name" : "Process32NextW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, PROCESSENTRY32W*)",
+"line" : 48}
+,
+{
+"name" : "ReadProcessMemory",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, const(void)*, void*, uint, uint*)",
+"line" : 49}
+,
+{
+"name" : "ResumeThread",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) uint(void*)",
+"line" : 50}
+,
+{
+"name" : "SuspendThread",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) uint(void*)",
+"line" : 51}
+,
+{
+"name" : "WriteProcessMemory",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, void*, const(void)*, uint, uint*)",
+"line" : 52}
+,
+{
+"name" : "TerminateProcess",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, uint)",
+"line" : 53}
+,
+{
+"name" : "TerminateThread",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, uint)",
+"line" : 54}
+,
+{
+"name" : "VirtualAllocEx",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(void*, void*, uint, uint, uint)",
+"line" : 55}
+,
+{
+"name" : "VirtualFreeEx",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, void*, uint, uint)",
+"line" : 56}
+,
+{
+"name" : "VirtualProtectEx",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, void*, uint, uint, uint*)",
+"line" : 57}
+,
+{
+"name" : "LPTHREAD_START_ROUTINE",
+"kind" : "alias",
+"protection" : "public",
+"type" : "extern (Windows) uint function(void*)",
+"line" : 58}
+,
+{
+"name" : "EnumWindows",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(extern (Windows) int function(void*, int), int)",
+"line" : 62}
+,
+{
+"name" : "FindWindowW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) void*(const(wchar)*, const(wchar)*)",
+"line" : 63}
+,
+{
+"name" : "GetClassNameW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, wchar*, int)",
+"line" : 64}
+,
+{
+"name" : "GetWindowLongW",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) int(void*, int)",
+"line" : 65}
+,
+{
+"name" : "GetWindowThreadProcessId",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) uint(void*, uint*)",
+"line" : 66}
+,
+{
+"name" : "WaitForInputIdle",
+"kind" : "function",
+"protection" : "public",
+"type" : "extern (Windows) uint(void*, uint)",
+"line" : 67}
+,
+{
+"name" : "WNDENUMPROC",
+"kind" : "alias",
+"protection" : "public",
+"type" : "extern (Windows) int function(void*, int)",
+"line" : 68}
+,
+{
+"name" : "VS_FIXEDFILEINFO",
+"kind" : "struct",
+"protection" : "public",
+"line" : 72,
+"members" : [
+{
+"name" : "dwSignature",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 73}
+,
+{
+"name" : "dwStrucVersion",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 74}
+,
+{
+"name" : "dwFileVersionMS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 75}
+,
+{
+"name" : "dwFileVersionLS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 76}
+,
+{
+"name" : "dwProductVersionMS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 77}
+,
+{
+"name" : "dwProductVersionLS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 78}
+,
+{
+"name" : "dwFileFlagsMask",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 79}
+,
+{
+"name" : "dwFileFlags",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 80}
+,
+{
+"name" : "dwFileOS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 81}
+,
+{
+"name" : "dwFileType",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 82}
+,
+{
+"name" : "dwFileSubtype",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 83}
+,
+{
+"name" : "dwFileDateMS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 84}
+,
+{
+"name" : "dwFileDateLS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 85}
+]
+}
+,
+{
+"name" : "STARTUPINFOW",
+"kind" : "struct",
+"protection" : "public",
+"line" : 88,
+"members" : [
+{
+"name" : "cb",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 89}
+,
+{
+"name" : "lpReserved",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar*",
+"line" : 90}
+,
+{
+"name" : "lpDesktop",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar*",
+"line" : 91}
+,
+{
+"name" : "lpTitle",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar*",
+"line" : 92}
+,
+{
+"name" : "dwX",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 93}
+,
+{
+"name" : "dwY",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 94}
+,
+{
+"name" : "dwXSize",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 95}
+,
+{
+"name" : "dwYSize",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 96}
+,
+{
+"name" : "dwXCountChars",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 97}
+,
+{
+"name" : "dwYCountChars",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 98}
+,
+{
+"name" : "dwFillAttribute",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 99}
+,
+{
+"name" : "dwFlags",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 100}
+,
+{
+"name" : "wShowWindow",
+"kind" : "variable",
+"protection" : "public",
+"type" : "ushort",
+"line" : 101}
+,
+{
+"name" : "cbReserved2",
+"kind" : "variable",
+"protection" : "public",
+"type" : "ushort",
+"line" : 102}
+,
+{
+"name" : "lpReserved2",
+"kind" : "variable",
+"protection" : "public",
+"type" : "ubyte*",
+"line" : 103}
+,
+{
+"name" : "hStdInput",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 104}
+,
+{
+"name" : "hStdOutput",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 105}
+,
+{
+"name" : "hStdError",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 106}
+]
+}
+,
+{
+"name" : "LPSTARTUPINFOW",
+"kind" : "alias",
+"protection" : "public",
+"type" : "STARTUPINFOW*",
+"line" : 108}
+,
+{
+"name" : "PROCESS_INFORMATION",
+"kind" : "struct",
+"protection" : "public",
+"line" : 110,
+"members" : [
+{
+"name" : "hProcess",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 111}
+,
+{
+"name" : "hThread",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 112}
+,
+{
+"name" : "dwProcessId",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 113}
+,
+{
+"name" : "dwThreadId",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 114}
+]
+}
+,
+{
+"name" : "CREATE_SUSPENDED",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 117}
+,
+{
+"name" : "PROCESSENTRY32W",
+"kind" : "struct",
+"protection" : "public",
+"line" : 119,
+"members" : [
+{
+"name" : "dwSize",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 120}
+,
+{
+"name" : "cntUsage",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 121}
+,
+{
+"name" : "th32ProcessID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 122}
+,
+{
+"name" : "th32DefaultHeapID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 123}
+,
+{
+"name" : "th32ModuleID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 124}
+,
+{
+"name" : "cntThreads",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 125}
+,
+{
+"name" : "th32ParentProcessID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 126}
+,
+{
+"name" : "pcPriClassBase",
+"kind" : "variable",
+"protection" : "public",
+"type" : "int",
+"line" : 127}
+,
+{
+"name" : "dwFlags",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 128}
+,
+{
+"name" : "szExeFile",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar[260u]",
+"line" : 129}
+]
+}
+,
+{
+"name" : "MODULEENTRY32W",
+"kind" : "struct",
+"protection" : "public",
+"line" : 132,
+"members" : [
+{
+"name" : "dwSize",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 133}
+,
+{
+"name" : "th32ModuleID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 134}
+,
+{
+"name" : "th32ProcessID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 135}
+,
+{
+"name" : "GlblcntUsage",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 136}
+,
+{
+"name" : "ProccntUsage",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 137}
+,
+{
+"name" : "modBaseAddr",
+"kind" : "variable",
+"protection" : "public",
+"type" : "ubyte*",
+"line" : 138}
+,
+{
+"name" : "modBaseSize",
+"kind" : "variable",
+"protection" : "public",
+"type" : "uint",
+"line" : 139}
+,
+{
+"name" : "hModule",
+"kind" : "variable",
+"protection" : "public",
+"type" : "void*",
+"line" : 140}
+,
+{
+"name" : "szModule",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar[256u]",
+"line" : 141}
+,
+{
+"name" : "szExePath",
+"kind" : "variable",
+"protection" : "public",
+"type" : "wchar[260u]",
+"line" : 142}
+]
+}
+,
+{
+"name" : "MAX_MODULE_NAME32",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 145}
+,
+{
+"name" : "MAX_PATH",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 146}
+,
+{
+"name" : "PROCESS_TERMINATE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 149}
+,
+{
+"name" : "PROCESS_CREATE_THREAD",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 150}
+,
+{
+"name" : "PROCESS_SET_SESSIONID",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 151}
+,
+{
+"name" : "PROCESS_VM_OPERATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 152}
+,
+{
+"name" : "PROCESS_VM_READ",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 153}
+,
+{
+"name" : "PROCESS_VM_WRITE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 154}
+,
+{
+"name" : "PROCESS_DUP_HANDLE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 155}
+,
+{
+"name" : "PROCESS_CREATE_PROCESS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 156}
+,
+{
+"name" : "PROCESS_SET_QUOTA",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 157}
+,
+{
+"name" : "PROCESS_SET_INFORMATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 158}
+,
+{
+"name" : "PROCESS_QUERY_INFORMATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 159}
+,
+{
+"name" : "PROCESS_ALL_ACCESS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 160}
+,
+{
+"name" : "TH32CS_SNAPHEAPLIST",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 163}
+,
+{
+"name" : "TH32CS_SNAPPROCESS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 164}
+,
+{
+"name" : "TH32CS_SNAPTHREAD",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 165}
+,
+{
+"name" : "TH32CS_SNAPMODULE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 166}
+,
+{
+"name" : "TH32CS_SNAPALL",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 167}
+,
+{
+"name" : "TH32CS_INHERIT",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 168}
+,
+{
+"name" : "THREAD_TERMINATE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 171}
+,
+{
+"name" : "THREAD_SUSPEND_RESUME",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 172}
+,
+{
+"name" : "THREAD_GET_CONTEXT",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 173}
+,
+{
+"name" : "THREAD_SET_CONTEXT",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 174}
+,
+{
+"name" : "THREAD_SET_INFORMATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 175}
+,
+{
+"name" : "THREAD_QUERY_INFORMATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 176}
+,
+{
+"name" : "THREAD_SET_THREAD_TOKEN",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 177}
+,
+{
+"name" : "THREAD_IMPERSONATE",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 178}
+,
+{
+"name" : "THREAD_DIRECT_IMPERSONATION",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 179}
+]
+}
+,
+{
+"name" : "main",
+"kind" : "module",
+"file" : "main.d",
+"members" : [
+{
+"name" : "DESIRED_ACCESS",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(uint)",
+"line" : 13}
+,
+{
+"name" : "sendStream",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 16}
+,
+{
+"name" : "sendDataLength",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 17}
+,
+{
+"name" : "sendToServerFunc",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 18}
+,
+{
+"name" : "parserFunc",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 20}
+,
+{
+"name" : "recvStream",
+"kind" : "variable",
+"protection" : "public",
+"type" : "const(int)",
+"line" : 21}
+,
+{
+"name" : "main",
+"kind" : "function",
+"protection" : "public",
+"type" : "int(string[] argv)",
+"line" : 23}
+,
+{
+"name" : "FindProcessByWindowName",
+"kind" : "function",
+"protection" : "public",
+"type" : "uint(wchar[] windowName)",
+"line" : 77}
+]
+}
+]
